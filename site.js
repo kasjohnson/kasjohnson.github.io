@@ -28,3 +28,11 @@ else{
 //append welcome message to h2
 divWelcome.append(h2)
 
+
+
+//Assignment 4- Secret Message
+
+//put in local storage
+const key = "It's a secret to everybody."
+localStorage.setItem(key, "How do you follow Will Smith in the snow? Answer: You follow the fresh prints.")
+//localStorage.getItem(key)
