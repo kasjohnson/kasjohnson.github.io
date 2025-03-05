@@ -1,5 +1,5 @@
 
-alert('Hello!')
+//alert('Hello!')
 
 //get date
 const hours = new Date().getHours() // get the current hour
@@ -80,3 +80,61 @@ setInterval(()=>{
     currentImage ++
     showImages()
 },2000)
+
+
+
+//Assignment 6 - To-Do List
+
+const addToDoBtn = document.querySelector('#add')
+const todo = document.querySelector('#new-todo')
+const todoList = document.querySelector('.todo-list')
+
+
+//make function to clear list upon page load and add items already in local storage
+const renderToDos = () => {
+
+     // Clear the li's before we recreate them
+    todoList.innerHTML = ''
+
+    // Get the list from local storage
+    const todos = JSON.parse(localStorage.getItem('todo-list')) || []
+
+    todos.forEach(({text}) => {
+        // Create and add new list items to the DOM
+        const li = document.createElement('li')
+        li.textContent = text
+        todoList.append(li)
+    })   
+}
+
+document.querySelector('body').onload = () =>{
+    renderToDos()
+}
+
+addToDoBtn.addEventListener('click', () => {
+
+    // Get the list from local storage
+    const todos = JSON.parse(localStorage.getItem('todo-list')) || []
+
+    // Add a new item to the list
+    todos.push({ text: todo.value, completed: false })
+
+    // Save the list to local storage
+    localStorage.setItem('todo-list', JSON.stringify(todos))
+
+    //execute function
+    renderToDos()
+
+    //clear input after button is pressed
+    document.querySelector('#new-todo').value=""
+
+})
+
+    
+
+   
+
+
+ 
+
+

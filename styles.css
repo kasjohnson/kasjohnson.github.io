@@ -80,3 +80,27 @@ footer{
     width: 75%;
     margin: 0 auto;
 }
+
+
+
+/*Assignment 6- To-Do List*/
+
+section:last-of-type{
+    margin-top: 100px;
+    text-align: center;
+    background-color:lightblue;
+    padding: 15px 5px;
+}
+
+ul:last-of-type{
+    font-style: normal;
+    text-align: left;
+    padding-left: 150px;
+    
+}
+
+ul:last-of-type li{
+    list-style-type:square;
+    font-style: normal;
+    
+}
