@@ -131,9 +131,27 @@ addToDoBtn.addEventListener('click', () => {
 })
 
     
+//Assignment 7- API Fetch
 
-   
 
+const getRandomPokemon = async () => {
+    const url = 'https://pokeapi.co/api/v2/pokemon/' + Math.floor(Math.random() * 150)
+    const data =  await fetch(url)
+    const json = await data.json()
+    const sprite = json.sprites.front_default
+    return sprite
+}
+const renderPokemon = (sprite) => {
+    const api = document.querySelector('#apiFetch')
+    const apiImg = document.createElement('img')
+    apiImg.src = sprite
+    apiImg.alt= 'Pokemon Sprite'
+    api.append(apiImg)
+} 
+
+(async()=> {const spriteResult = await getRandomPokemon()
+    renderPokemon(spriteResult)
+})()
 
  
 
